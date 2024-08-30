@@ -1,0 +1,650 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat Regular";
+}
+
+
+
+header{
+    height: 100px;
+    padding: 0 50px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    
+   
+}
+
+@keyframes slideFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+header .logo{
+    color: rgb(0, 0, 0);
+    float: left;
+    display: flex;
+    width: 40%;
+    align-items: center;
+    height: 100%; 
+    animation: slideFromLeft 1s forwards; /* Adjust the duration as needed */
+}
+
+
+header .menu{
+    float: right;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 60%;
+    justify-content: center;
+    
+    
+}
+
+
+header .menu li{
+    list-style: none;
+}
+
+
+header .menu a{
+    text-decoration: none;
+    margin: 0 30px;
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: ease-out 0.3s;
+}
+
+
+header .menu a:hover{
+    color: white;
+    font-size: 1.4em;
+    font-weight: 700px;
+    transition: ease 0.3s;
+    font-weight: 700;
+}
+
+header .bookme{
+    background-color: crimson;
+    padding: 5px;
+    border-radius: 20px;
+    
+    
+    
+
+}
+
+
+header .bookme:hover{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid hsl(0, 100%, 100%);
+    color: rgb(0, 0, 0) !important;
+    transition: all ease-in-out 0.3s;
+    border-radius: 50px;
+}
+#menu-bottom{
+    visibility: hidden;
+    position: absolute;
+}
+.line{
+    background-color:  crimson;
+    width: 30px;
+    height: 5px;
+    margin: 5px;
+    border-radius: 3px;
+    transition: all 0.5s ease-in-out;
+
+}
+.menuicon{
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    display: none;
+    transform: translateY(-50%);
+    
+}
+@media screen and (max-width: 768px){
+header .logo{
+    float: none;
+    width: auto;
+    justify-content: left;
+}
+header .menu{
+    float: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 70px;
+    bottom: 100%;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+
+header :checked ~ .menu{
+    bottom: 0;
+    backdrop-filter: blur(5px);
+    background-color:   #00003e;
+    border-radius: 50px;
+}
+header .menuicon{
+    display: block;
+
+}
+header :checked ~ .menuicon .line:nth-child(1){
+    transform: translateY(10px) rotate(225deg);
+}
+header :checked ~ .menuicon .line:nth-child(3){
+    transform: translateY(-10px) rotate(-225deg);
+    
+}
+header :checked ~ .menuicon .line:nth-child(2){
+    opacity: 0;
+}
+}
+
+.contentbox{
+    width: 100%;
+    background-color: rgb(37, 66, 254);
+    background-image: url(logo/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 700px;
+    background-size: cover;
+    
+
+}
+
+section .intro_message{
+    width: 40%;
+    font-family: 'montserrat';
+    padding: 10px;
+    text-align: center;
+    padding-top: 120px;
+    float: left;
+   
+
+}
+
+.intro_message h1{
+color: white;
+font-size: 30px;
+margin-top: 90px;
+margin-left: 50px;
+}
+
+.intro_message p{
+    color: black;
+    margin: 5px;
+    }
+
+button{
+    margin-top: 25px;
+    background-color: crimson;
+    font-size: 20px;
+    font-weight: 800;
+    border: none;
+    border-radius: 0px;
+    padding: 10px;
+    transition: all 0.3s;
+    animation: fadeInFromBottom 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+button a{
+    text-decoration: none;
+    text-align: center;
+    color: aliceblue;
+    
+}
+
+button:hover{
+    background-color: rgb(255, 255, 255);
+    transition: all ease-in-out 0.5s ;
+    border-radius: 20px;
+    border-bottom-right-radius: 20px;
+    
+    
+}
+
+button a:hover{
+    color: black;
+}
+
+
+@media screen and (max-width: 768px){
+
+    section .intro_message {
+        width: 90%;
+        padding-top: 60px;
+        margin: 0 auto;
+    }
+
+    .intro_message h1 {
+        font-size: 24px;
+    }
+
+    .intro_message p {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+.picture{
+    background-color: #faf9f6;
+    margin-top: 20px;
+    width: 300px;
+    height: 300px;
+    float: right;
+    display: flex;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    right: 10%;
+    top: 150px;
+    transition: ease-in 0.3s;
+    animation: popIn 1.3s ease-out forwards;
+    justify-content: center;
+    
+    
+}
+
+.picture:hover{
+    border: solid white 3px;
+    transition: ease-out 0.3s;
+
+
+}
+
+.picture img{
+    background-image: url(pdf/PhotoRoom-20230801_043027.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: 2 / 2;
+}
+
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.1);
+        border: solid white 3px;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px){
+
+
+    .picture {
+        width: 200px; /* Reduce size for mobile */
+        height: 200px;
+        position: static; /* Remove absolute positioning */
+        float: none; /* Remove float */
+        margin: 20px auto; /* Center the picture */
+        right: auto; /* Reset right position */
+        top: auto; /* Reset top position */
+    }
+}
+
+.About{
+    text-align: center;
+    margin-top: 50px;
+
+}
+.About h3{
+padding: 10px;
+}
+
+.About p{
+    padding: 30px;
+    font-weight: 500;
+}
+
+.Service{
+    text-align: center;
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px 0; /* Add padding for better spacing */
+}
+
+.Services{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    line-height: 30px;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.st1, .st2, .st3 {
+    font-weight: 800;
+    text-align: center;
+    width: 30%; /* Set a width for each service item */
+    margin-bottom: 20px; /* Add some space between items when they wrap */
+}
+
+@media screen and (max-width: 768px) {
+    .Service {
+        height: auto; /* Remove fixed height for flexibility */
+    }
+
+    .Services {
+        flex-direction: column; /* Stack items vertically on mobile */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .st1, .st2, .st3 {
+        width: 100%; /* Full width on mobile */
+        margin-bottom: 30px; /* Increase space between items */
+    }
+}
+
+.Works{
+    text-align: center;
+    margin-top: 50px;
+    
+    
+}
+.cnt{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px;
+    animation: refreshAnimation 0.5s ease-out;
+    flex-wrap: wrap;
+}
+
+@keyframes refreshAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.box1{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 30%;
+    margin-top: 20px;
+    background-image: url(flyers/AEROBICS.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    
+}
+
+.box2{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 30%;
+    margin-top: 20px;
+    background-image: url(flyers/ARE\ YOU\ GOD\ 1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.box3{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 30%;
+    height: 350px;
+    margin-top: 20px;
+    overflow: hidden;
+    background-image: url(flyers/BOOSTER\ FLYER.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.box4{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 30%;
+    margin-top: 20px;
+    background-image: url(flyers/WE-OPEN.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    
+}
+
+.box5{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 30%;
+    margin-top: 20px;
+    background-image: url(flyers/Xore-Flyer.A1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.box6{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 30%;
+    height: 350px;
+    margin-top: 20px;
+    background-image: url(flyers/Delly43-New-Month2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.box1:hover, .box2:hover, .box3:hover, .box4:hover, .box5:hover, .box6:hover {
+    transform: translateY(-10px);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: ease-in-out 0.3s;
+}
+
+.box3, .box6 {
+    height: 350px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .cnt {
+        flex-direction: column; /* Stack items vertically on mobile */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .box1, .box2, .box3, .box4, .box5, .box6 {
+        width: 90%; /* Increase width to take up most of the screen */
+        margin-bottom: 20px; /* Add space between boxes */
+    }
+}
+
+.view a{
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: 800;
+    border: none;
+    border-radius: 0px;
+    padding: 10px;
+    transition: all 0.3s;
+    animation: fadeInFromBottom 1s ease-out forwards;
+    opacity: 0;
+    text-decoration: none;
+    color: #000000;
+    border: 1.5 px solid #00003e;
+
+    
+}
+
+.view a:hover{
+    background-color: #00003e;
+    color: white;
+
+
+
+}
+
+
+.Project{
+    text-align: center;
+    margin-top: 50px;
+   
+}
+
+.Projects{
+    margin-top: 20px;
+}
+
+.Projects a{
+    text-decoration: none;
+    border-radius: 10px;
+    background-color:  #00003e;
+    padding: 10px;
+    height: 20px;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+    color: white;
+    font-weight: 700;
+
+}
+
+.Projects a:hover {
+    color: #000000;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border:1px solid #00003e;
+    background-color: white;
+}
+
+.Contact{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.Contact h1 {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color: #00003e;
+    font-weight: 800;
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #00003e;
+    text-align: center;
+    font-family: 'montserrat';
+}
+
+.Contact p{
+    font-weight: 500;
+    margin-bottom: 20px;
+
+    
+}
+
+.Contact a{
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .Contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+  
+    .Contact p {
+      margin-bottom: 20px;
+        font-size: 20px;
+        text-transform: capitalize;
+    }
+    
+   
+  }
+
+
+footer {
+    background-color: #00003e;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-text {
+    font-size: 14px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    display: inline-block;
+    color: white;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2) rotate(5deg);
+    color: #1ccad8;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.social-icons a:hover i {
+    animation: bounce 0.5s ease infinite;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
